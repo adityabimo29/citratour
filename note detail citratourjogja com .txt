@@ -1,0 +1,80 @@
+domain :  citratourjogja.com
+
+
+
+HOME
+RENTAL MOBIL
+ - Daily Rent Service 
+ - Transfer In Out
+ - Wedding Car 
+PAKET TOUR JOGJA
+ - wisata 1 hari
+ - wisata 2 hari 1 malam
+ - dst
+PAKET TOUR LAINNYA 
+ - SOLO
+ - BROMO
+ - SEMARANG
+ - BANDUNG
+ - MALANG
+ - DIENG
+ - BALI
+ - LOMBOK
+GALERI
+ - video
+ - foto
+BLOG
+KONTAK
+TOUR CUSTOM
+============
+Note :  
+- SEWA mobil sub menu seperti sabila https://www.sabilatransport.com 
+  Daily Rent Service  (sabila)
+  Transfer In Out (sabila)
+  Wedding Car (sabila)
+- paket tour halaman seperti tour https://widyalokawisata.com/paket-wisata-jogja-1-hari
+  booking ke WA
+  sebaris isi 2
+- detail tour, harga & fasilitas
+- sub menu seperti widyaloka
+  dibuat text ketikan (destinasi, harga, nama paket) tidak digambar
+- tanpa booking form, ganti dengan button WA booking. 
+- TOUR CUSTOM . custom tour  nagan tour   (send to email) 
+- paket wisata copy dari widya loka semua. cukup ambil harga & fasilitas
+=========================
+Urutan di HOME 
+- slider, Ren Car, Paket Tour Jogja, Keunggulan, Our Client, Footer
+- footer sabila
+===================================
+EPP CODE DOMAIN citratourjogja.com
+
+
+ 
+=============
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

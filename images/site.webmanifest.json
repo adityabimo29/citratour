@@ -1,0 +1,22 @@
+{
+    "name": "SMA N 1 Kotapinang",
+    "short_name": "smankopin",
+    "start_url":"index.php",
+    "scope": ".", 
+    "description":"SMAN 1 KOTAPINANG",
+    "icons": [
+        {
+            "src": "android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "android-chrome-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#e74c3c",
+    "background_color": "#e74c3c",
+    "display": "standalone"
+}
