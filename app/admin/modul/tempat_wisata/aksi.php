@@ -5,6 +5,7 @@ $judul_seo = seo($_POST["judul"]);
 if ($act == 'update') {
     try {
         $datas = array(
+            'id_lokasi' => $_POST["id_lokasi"],
             'judul' => $_POST["judul"],
             'judul_seo' => $judul_seo,
         );
@@ -20,6 +21,7 @@ if ($act == 'update') {
 elseif ($act == 'add') {
     try {
         $datas = array(
+            'id_lokasi' => $_POST["id_lokasi"],
             'judul' => $_POST["judul"],
             'judul_seo' => $judul_seo,
         );

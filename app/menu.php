@@ -1,4 +1,4 @@
-<header id="header">
+<header id="header" class="bg-dark">
     <div class="main-menu">
         <div class="container">
             <div class="row align-items-center justify-content-between d-flex">

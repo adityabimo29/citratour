@@ -106,13 +106,15 @@ $router->get('/visi-misi', function () use ($templates,$db) {
 
 });
 
-$router->get('/sarana-prasarana', function () use ($templates,$db) {
+$router->get('/custom-tour', function () use ($templates,$db) {
 
     /** SEO */
     $templates->addData(['seo' => 'detpage','id' => 15]);
 
-    $data        = $db->read('page','*', 'id_page = 15')->fetch(PDO::FETCH_ASSOC);
-    echo $templates->render('page', ['data' => $data,]);
+    $lokasi     = $db->connection('SELECT * FROM lokasi');
+    $prakata        = $db->read('page','*', 'id_page = 14')->fetch(PDO::FETCH_ASSOC);
+    $syarat        = $db->read('page','*', 'id_page = 15')->fetch(PDO::FETCH_ASSOC);
+    echo $templates->render('customTour', ['prakata' => $prakata,'lokasi'=>$lokasi,'syarat'=>$syarat]);
 
 });
 

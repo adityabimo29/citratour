@@ -505,8 +505,9 @@ $router->mount('/adm', function () use ($router, $db, $jmw, $path,$imgname1) {
 
     /** Url Tempat Wisata **/
     $router->get('/tempat-wisata', function () use ($jmw, $db) {
-        $tampil = $db->connection("SELECT * FROM tempat_wisata  ORDER BY id_tempat_wisata DESC");
-        echo $jmw->render('modul/tempat_wisata/index', ['act' => 'list', 'tampil' => $tampil]);
+        $lokasi = $db->connection("SELECT * FROM lokasi")->fetchAll();
+        $tampil = $db->connection("SELECT *,l.judul AS jdl FROM lokasi l JOIN  tempat_wisata t ON l.id_lokasi = t.id_lokasi  ORDER BY t.id_tempat_wisata DESC");
+        echo $jmw->render('modul/tempat_wisata/index', ['act' => 'list', 'tampil' => $tampil, 'lokasi' => $lokasi]);
     });
 
     /** Update dan Add Tempat Wisata **/
