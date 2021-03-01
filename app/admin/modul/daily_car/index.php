@@ -1,11 +1,11 @@
-<?php $this->layout('template', ['hal'=>'Daily Rent Service Slider']) ?>
+<?php $this->layout('template', ['hal'=> $potion]) ?>
 <?php
 	$module = "daily-car";
 
 	switch($act){
         case "list":
 ?>
-<a href="daily-car-add" class="btn btn-primary"> <i class="fa fa-plus"></i> Tambah Data</a>
+<a href="<?=$jenis?>-add" class="btn btn-primary"> <i class="fa fa-plus"></i> Tambah Data</a>
 <br><br>
 <div class="table-responsive">
     <table id="my_table" class="table table-striped table-bordered">
@@ -28,7 +28,7 @@
                 <td><img src="../images/daily_car/small/<?php echo $row['gambar']; ?>"
                         style="width:100px;margin:0 auto;display:block">
                 </td>
-                <td style="width:19%"><a href="daily-car-edit-<?php echo $row['id_daily_car'] ?>"
+                <td style="width:19%"><a href="<?=$jenis?>-edit-<?php echo $row['id_daily_car'] ?>"
                         class="btn btn-warning "> <i class="fas fa-pencil-alt"></i> Edit</a>
                     <a onClick="javascript: return confirm('Yakin untuk Menghapus data ?');"
                         href="<?php echo $module; ?>-delete-<?php echo $row['id_daily_car']; ?>" class="btn btn-danger "
@@ -46,17 +46,24 @@
 <?php
 		break;
 		case "add":
+            if($jenis == 'daily-car'){
+                $urk = 'daily';
+             }elseif($jenis == 'wedding-car'){
+                $urk = 'wedding';
+             }
 ?>
 <div class="card">
     <div class="card-body">
-        <form action="daily-car" method="POST" enctype="multipart/form-data">
+        <form action="<?=$jenis?>" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="">Nama</label>
+                        <input type="hidden" name="jenis" value="<?=$jenis?>">
                         <input type="text" class="form-control" name="nama" required>
                     </div>
                 </div>
+                <?php if(isset($kategori)) : ?>
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="">Kategori</label>
@@ -67,6 +74,7 @@
                         </select>
                     </div>
                 </div>
+                <?php endif; ?>
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="message-text" class="control-label">Gambar</label>
@@ -88,7 +96,7 @@
 ?>
 <div class="card">
     <div class="card-body">
-        <form action="daily-car" id="form-daily-car" method="POST" enctype="multipart/form-data">
+        <form action="<?=$jenis?>" id="form-daily-car" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="id_daily_car" value="<?php echo $data['id_daily_car'] ?>">
             <div class="row">
                 <div class="col-md-12">
@@ -97,6 +105,7 @@
                         <input type="text" class="form-control" name="nama" value="<?php echo $data['judul'] ?>">
                     </div>
                 </div>
+                <?php if(isset($kategori)) : ?>
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="">Kategori</label>
@@ -109,11 +118,19 @@
                         </select>
                     </div>
                 </div>
+                <?php endif; ?>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Deskripsi</label>
                         <br>
-                        <a class="btn btn-sm btn-info mb-2" href="daily-description-add-<?=$data['id_daily_car']?>"><i
+                        <?php
+                         if($jenis == 'daily-car'){
+                            $urk = 'daily-description';
+                         }elseif($jenis == 'wedding-car'){
+                            $urk = 'wedding-description';
+                         }
+                        ?>
+                        <a class="btn btn-sm btn-info mb-2" href="<?=$urk?>-add-<?=$data['id_daily_car']?>"><i
                                 class="fa fa-plus" aria-hidden="true"></i> Tambah</a>
                         <div class="table-responsive">
                             <table id="my_table2" class="table table-sm table-bordered">
@@ -133,12 +150,12 @@
                                         <td><?=$no?></td>
                                         <td><?php echo  $r['deskripsi']; ?></td>
                                         <td align="center" width="20%">
-                                            <a href="daily-description-edit-<?php echo $r['id_daily_description']; ?>"
+                                            <a href="<?=$urk?>-edit-<?php echo $r['id_daily_description']; ?>"
                                                 class="btn btn-warning btn-sm " role="button" aria-pressed="true"
                                                 style=""> <i class="fa fa-pencil"></i>
                                             </a>
                                             <a onClick="javascript: return confirm('Data yang Sudah di Hapus TIDAK BISA Dikembalikan Kembali. Apakah Anda yakin ingin Menghapus Data Ini!!');"
-                                                href="daily-description-delete-<?php echo $r['id_daily_description']; ?>"
+                                                href="<?=$urk?>-delete-<?php echo $r['id_daily_description']; ?>"
                                                 class="btn btn-danger btn-sm" role="button" aria-pressed="true"
                                                 style=""> <i class="fa fa-trash"></i>
                                             </a>

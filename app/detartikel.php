@@ -1,5 +1,5 @@
 <?php $this->layout('template') ?>
-<div id="case" class="section wb" style="text-align: justify;">
+<div id="case" class="section wb martop" style="text-align: justify;">
     <div class="container">
         <div class="row">
             <div class="col-md-8">
@@ -17,18 +17,18 @@
             </div>
             <div class="col-md-4">
                 <div class="box-side">
-                    <h3 style="font-weight: bold; ">Artikel Lainnya</h3>
-                    <hr style="border-top: 5px solid #015786;margin-top:0px">
+                    <h3 style="font-weight: bold; ">Blog Lainnya</h3>
+                    <hr style="border-top: 5px solid #015786;margin-top:10px">
                     <?php foreach($artikel as $row) : ?>
                     <div class="row">
                         <div class="col-md-6 col-xs-5">
-                            <a href="artikel-<?php echo $row['judul_seo']."-".$row['id_artikel'] ?>">
+                            <a href="blog-<?php echo $row['judul_seo']."-".$row['id_artikel'] ?>">
                                 <img src="images/artikel/small/<?php echo $row['gambar'] ?>"
                                     style="height:100px;width:100%">
                             </a>
                         </div>
                         <div class="col-md-6 col-xs-7">
-                            <a href="artikel-<?php echo $row['judul_seo']."-".$row['id_artikel'] ?>">
+                            <a href="blog-<?php echo $row['judul_seo']."-".$row['id_artikel'] ?>">
                                 <h6 style="line-height:17px; font-weight: bold;"><?php echo $row['judul'] ?></h6>
                             </a>
                             <small style="margin-right:10px"> <i class="fa fa-calendar"></i>

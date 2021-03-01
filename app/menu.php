@@ -3,22 +3,31 @@
         <div class="container">
             <div class="row align-items-center justify-content-between d-flex">
                 <div id="logo">
-                    <a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
+                    <a href="<?=$base_url?>"><img src="img/logo.png" alt="" title="" /></a>
                 </div>
                 <nav id="nav-menu-container">
                     <ul class="nav-menu">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="packages.html">Packages</a></li>
-                        <li><a href="hotels.html">Hotels</a></li>
-                        <li><a href="insurance.html">Insurence</a></li>
-                        <li class="menu-has-children"><a href="">Blog</a>
+                        <li><a href="<?=$base_url?>">HOME</a></li>
+                        <li class="menu-has-children"><a href="">RENTAL MOBIL</a>
+                            <ul>
+                                <li><a href="daily-rent-service">Daily Rent Service</a></li>
+                                <li><a href="transfer-in-out">Transfer In Out</a></li>
+                                <li><a href="wedding-car">Wedding Car</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-has-children"><a href="">PAKET TOUR JOGJA</a>
                             <ul>
                                 <li><a href="blog-home.html">Blog Home</a></li>
                                 <li><a href="blog-single.html">Blog Single</a></li>
                             </ul>
                         </li>
-                        <li class="menu-has-children"><a href="">Pages</a>
+                        <li class="menu-has-children"><a href="">PAKET TOUR LAINNYA</a>
+                            <ul>
+                                <li><a href="blog-home.html">Blog Home</a></li>
+                                <li><a href="blog-single.html">Blog Single</a></li>
+                            </ul>
+                        </li>
+                        <!-- <li class="menu-has-children"><a href="">Pages</a>
                             <ul>
                                 <li><a href="elements.html">Elements</a></li>
                                 <li class="menu-has-children"><a href="">Level 2 </a>
@@ -28,8 +37,16 @@
                                     </ul>
                                 </li>
                             </ul>
+                        </li> -->
+                        <li class="menu-has-children"><a href="">GALERI</a>
+                            <ul>
+                                <li><a href="video">Video</a></li>
+                                <li><a href="foto">Foto</a></li>
+                            </ul>
                         </li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="blog">BLOG</a></li>
+                        <li><a href="kontak">KONTAK</a></li>
+                        <li><a href="custom-tour">TOUR CUSTOM</a></li>
                     </ul>
                 </nav>
             </div>

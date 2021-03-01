@@ -52,7 +52,7 @@
 ?>
 <div class="card">
     <div class="card-body">
-        <form action="daily-description" method="POST" enctype="multipart/form-data">
+        <form action="<?=$jenis?>" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
@@ -80,7 +80,7 @@ document.querySelector('#btn-daily_description').addEventListener('click', funct
 ?>
 <div class="card">
     <div class="card-body">
-        <form action="daily-description" id="form-daily_description" method="POST" enctype="multipart/form-data">
+        <form action="<?=$jenis?>" id="form-daily_description" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="id_daily_description" value="<?php echo $data['id_daily_description'] ?>">
             <input type="hidden" name="id_daily_car" value="<?php echo $data['id_daily_car'] ?>">
             <div class="row">

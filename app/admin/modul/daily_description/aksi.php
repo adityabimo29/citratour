@@ -9,7 +9,7 @@ if ($act == 'update') {
         );
         $db->update('daily_description', $datas, "id_daily_description = $_POST[id_daily_description] ");
 
-        echo "<script>alert('Data Berhasil diedit'); window.location = 'daily-car-edit-$_POST[id_daily_car]'</script>";
+        echo "<script>alert('Data Berhasil diedit'); window.location = '$hal-edit-$_POST[id_daily_car]'</script>";
     } catch (PDOException $e) {
         echo "<script>alert('Data Gagal diedit!'); window.location(history.back(-1))</script>";
     }
@@ -24,7 +24,7 @@ elseif ($act == 'add') {
         );
         $saved = $db->insert('daily_description', $datas);
 
-        echo "<script>alert('Datai Berhasil ditambah'); window.location = 'daily-car-edit-$_POST[id_daily_car]'</script>";
+        echo "<script>alert('Datai Berhasil ditambah'); window.location = '$hal-edit-$_POST[id_daily_car]'</script>";
 
     } catch (PDOException $e) {
         echo "<script>window.alert('Data Gagal ditambah!'); window.location(history.back(-1))</script>";

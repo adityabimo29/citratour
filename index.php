@@ -46,7 +46,7 @@ $router->get('/', function () use ($templates,$db) {
 
     $header  = $db->connection('SELECT * FROM page  WHERE id_page = 1 ')->fetch();
 
-    $berita  = $db->connection('SELECT * FROM artikel  ORDER BY id_artikel DESC LIMIT 12 ')->fetchAll();
+    $blog  = $db->connection('SELECT * FROM artikel  ORDER BY id_artikel DESC LIMIT 12 ')->fetchAll();
     
     $keuntungan  = $db->connection('SELECT * FROM keuntungan  ORDER BY id_keuntungan DESC ')->fetchAll();
 
@@ -58,7 +58,7 @@ $router->get('/', function () use ($templates,$db) {
         'prakata'   =>$prakata,
         'welcome'   =>$welcome,
         'keuntungan'=>$keuntungan,
-        'berita'    =>$berita,
+        'blog'    =>$blog,
         'header'   => $header,
         'gallery'  => $gallery
     );
@@ -118,12 +118,12 @@ $router->get('/custom-tour', function () use ($templates,$db) {
 
 });
 
-$router->get('/prestasi', function () use ($templates,$db) {
+$router->get('/kontak', function () use ($templates,$db) {
 
     /** SEO */
-    $templates->addData(['seo' => 'detpage','id' => 16]);
+    $templates->addData(['seo' => 'detpage','id' => 17]);
 
-    $data        = $db->read('page','*', 'id_page = 16')->fetch(PDO::FETCH_ASSOC);
+    $data        = $db->read('page','*', 'id_page = 17')->fetch(PDO::FETCH_ASSOC);
     echo $templates->render('page', ['data' => $data,]);
 
 });
@@ -196,7 +196,7 @@ $router->get('/foto-(.*)-(\d+)', function ($slug,$id) use ($templates,$db) {
 });
 
 
-$router->get('/berita', function () use ($templates,$db) {
+$router->get('/blog', function () use ($templates,$db) {
 
     /** SEO */
     $templates->addData(['seo' => 'detpage','id' => 9]);
@@ -208,7 +208,7 @@ $router->get('/berita', function () use ($templates,$db) {
     $posisi 	    = $page->cariPosisi($batas,$idPag);
     $jmldata        = $db->connection('SELECT * FROM artikel   ')->rowCount();
 	$jmlhalaman     = $page->jmlhalaman($jmldata, $batas);
-    $linkHalaman    = $page->navHalaman($idPag, $jmlhalaman,'berita');
+    $linkHalaman    = $page->navHalaman($idPag, $jmlhalaman,'blog');
     $pagination     = array(
         'batas'         => $batas,
         'jmldata'       => $jmldata,
@@ -220,11 +220,11 @@ $router->get('/berita', function () use ($templates,$db) {
 
     $data  = $db->connection("SELECT * FROM page  WHERE id_page = 9 ")->fetch(PDO::FETCH_ASSOC);
     
-    echo $templates->render('artikel', ['berita' => $foto,'pagination' => $pagination, 'data' => $data]);
+    echo $templates->render('artikel', ['blog' => $foto,'pagination' => $pagination, 'data' => $data]);
 
 });
 
-$router->get('/berita-page-(\d+)', function ($id) use ($templates,$db) {
+$router->get('/blog-page-(\d+)', function ($id) use ($templates,$db) {
 
     /** SEO */
     $templates->addData(['seo' => 'detpage','id' => 9]);
@@ -236,7 +236,7 @@ $router->get('/berita-page-(\d+)', function ($id) use ($templates,$db) {
     $posisi 	    = $page->cariPosisi($batas,$idPag);
     $jmldata        = $db->connection('SELECT * FROM artikel   ')->rowCount();
 	$jmlhalaman     = $page->jmlhalaman($jmldata, $batas);
-    $linkHalaman    = $page->navHalaman($idPag, $jmlhalaman,'berita');
+    $linkHalaman    = $page->navHalaman($idPag, $jmlhalaman,'blog');
     $pagination     = array(
         'batas'         => $batas,
         'jmldata'       => $jmldata,
@@ -248,7 +248,7 @@ $router->get('/berita-page-(\d+)', function ($id) use ($templates,$db) {
 
     $data  = $db->connection("SELECT * FROM page  WHERE id_page = 9 ")->fetch(PDO::FETCH_ASSOC);
     
-    echo $templates->render('artikel', ['berita' => $foto,'pagination' => $pagination, 'data' => $data]);
+    echo $templates->render('artikel', ['blog' => $foto,'pagination' => $pagination, 'data' => $data]);
 
 });
 
@@ -311,11 +311,11 @@ $router->post('/kontak', function () use ($templates,$db,$csrf) {
 $router->post('/cari', function () use ($templates,$db) {
     $data  = $db->connection("SELECT * FROM page  WHERE id_page = 9 ")->fetch(PDO::FETCH_ASSOC);
     $cari = $db->connection("SELECT * FROM artikel WHERE judul LIKE '%$_POST[cari]%' ")->fetchAll();
-    echo $templates->render('cari', ['berita' => $cari, 'data' => $data] );
+    echo $templates->render('cari', ['blog' => $cari, 'data' => $data] );
 });
 
 
-$router->get('/berita', function () use ($templates,$db) {
+$router->get('/blog', function () use ($templates,$db) {
     /** SEO */
     $templates->addData(['seo' => 'artikel']);
 
@@ -323,11 +323,11 @@ $router->get('/berita', function () use ($templates,$db) {
     echo $templates->render('artikel',['data' => $data] );
 });
 
-$router->get('/berita-page-(\d+)', function ($id) use ($templates,$db) {
+$router->get('/blog-page-(\d+)', function ($id) use ($templates,$db) {
 });
 
 
-$router->get('/artikel-(.*)-(\d+)', function ($slug,$id) use ($templates,$db) {
+$router->get('/blog-(.*)-(\d+)', function ($slug,$id) use ($templates,$db) {
     /** SEO */
     $templates->addData(['seo' => 'detartikel', 'id_seo' => $id]);
 

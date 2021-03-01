@@ -27,14 +27,14 @@ $router->post('/auth/login', function () use ($login, $jmw, $db) {
         $_SESSION['idsession']          = $r['id_session'];
         $_SESSION['halaman']            = 'Home';
         $_SESSION['IsAuthorized']       = true;
-        header('location: ../adm/dashboard');
+        header('location: ../admin/dashboard');
     } else {
         header('location: ../auth/login');
     }
 });
 
 /** Cek Keamanan **/
-$router->before('GET|POST', '/adm/.*', function () {
+$router->before('GET|POST', '/admin/.*', function () {
     if (!isset($_SESSION['nama_admin'])) {
             $getWholeUrl = "http://" . $_SERVER['HTTP_HOST'] . "" . $_SERVER['REQUEST_URI'] . "";
             if (substr($getWholeUrl, -1) == '/') {
@@ -49,7 +49,7 @@ $router->before('GET|POST', '/adm/.*', function () {
 
 
 /** Router dalam folder Admin **/
-$router->mount('/adm', function () use ($router, $db, $jmw, $path,$imgname1) {
+$router->mount('/admin', function () use ($router, $db, $jmw, $path,$imgname1) {
 
     /** Security Lvl 2 **/
     $router->get('/', function () {
@@ -273,6 +273,48 @@ $router->mount('/adm', function () use ($router, $db, $jmw, $path,$imgname1) {
 
 /*
  * ------------------------------------------------------
+ *  Router Video
+ * ------------------------------------------------------
+ */
+
+    /** Url video **/
+    $router->get('/video', function () use ($jmw, $db) {
+        $dataku = $db->connection("SELECT * FROM banner")->fetchAll();
+        echo $jmw->render('modul/banner/index', ['act' => 'list', 'dataku' => $dataku]);
+    });
+
+    /** Show Add Form video **/
+    $router->get('/video-add', function () use ($jmw, $db) {
+        echo $jmw->render('modul/banner/index', ['act' => 'add']);
+    });
+
+    /** Show Edit Form video **/
+    $router->get('/video-edit-(\d+)', function ($id) use ($jmw, $db) {
+        $data = $db->connection("SELECT * FROM banner WHERE id_banner = $id ")->fetch();
+        echo $jmw->render('modul/banner/index', ['act' => 'edit', 'data' => $data]);
+    });
+
+    /** Update dan Add video  **/
+    $router->post('/video', function () use ($jmw, $db, $path) {
+        if (isset($_POST['id_banner'])) {
+            $act = "update";
+        } else {
+            $act = "add";
+        }
+        $hal = "video";
+        include ($path . 'banner/aksi.php');
+    });
+
+    /** Delete video **/
+    $router->get('/video-delete-(\d+)', function ($id) use ($jmw, $db, $path) {
+        $act = "remove";
+        $hal = "video";
+        include ($path . 'banner/aksi.php');
+    });
+
+
+/*
+ * ------------------------------------------------------
  *  Router Slider
  * ------------------------------------------------------
  */
@@ -361,14 +403,23 @@ $router->mount('/adm', function () use ($router, $db, $jmw, $path,$imgname1) {
 
     /** Url Car **/
     $router->get('/daily-car', function () use ($jmw, $db) {
-        $dataku = $db->connection("SELECT * FROM daily_car")->fetchAll();
-        echo $jmw->render('modul/daily_car/index', ['act' => 'list', 'dataku' => $dataku]);
+        $dataku = $db->connection("SELECT * FROM daily_car WHERE jenis ='daily' ")->fetchAll();
+        echo $jmw->render('modul/daily_car/index', ['act' => 'list', 'dataku' => $dataku,'jenis'=> 'daily-car', 'potion' => 'Daily Rent Service']);
+    });
+
+    $router->get('/wedding-car', function () use ($jmw, $db) {
+        $dataku = $db->connection("SELECT * FROM daily_car WHERE jenis ='wedding' ")->fetchAll();
+        echo $jmw->render('modul/daily_car/index', ['act' => 'list', 'dataku' => $dataku,'jenis'=> 'wedding-car','potion' => 'Wedding Car']);
     });
 
     /** Show Add Form Car **/
     $router->get('/daily-car-add', function () use ($jmw, $db) {
         $kategori = $db->connection("SELECT * FROM daily_kategori ")->fetchAll();
-        echo $jmw->render('modul/daily_car/index', ['act' => 'add','kategori' => $kategori]);
+        echo $jmw->render('modul/daily_car/index', ['act' => 'add','kategori' => $kategori,'jenis'=> 'daily-car','potion' => 'Daily Rent Service']);
+    });
+
+    $router->get('/wedding-car-add', function () use ($jmw, $db) {
+        echo $jmw->render('modul/daily_car/index', ['act' => 'add','jenis'=> 'wedding-car','potion' => 'Wedding Car']);
     });
 
     /** Show Edit Form Car **/
@@ -376,8 +427,15 @@ $router->mount('/adm', function () use ($router, $db, $jmw, $path,$imgname1) {
         $kategori = $db->connection("SELECT * FROM daily_kategori ")->fetchAll();
         $desc = $db->connection("SELECT * FROM daily_description WHERE id_daily_car = $id ORDER BY id_daily_description ASC ")->fetchAll();
         $data = $db->connection("SELECT * FROM daily_car WHERE id_daily_car = $id ")->fetch();
-        echo $jmw->render('modul/daily_car/index', ['act' => 'edit', 'data' => $data,'kategori' => $kategori,'desc' => $desc]);
+        echo $jmw->render('modul/daily_car/index', ['act' => 'edit', 'data' => $data,'kategori' => $kategori,'desc' => $desc,'jenis'=> 'daily-car','potion' => 'Daily Rent Service']);
     });
+
+    $router->get('/wedding-car-edit-(\d+)', function ($id) use ($jmw, $db) {
+        $desc = $db->connection("SELECT * FROM daily_description WHERE id_daily_car = $id ORDER BY id_daily_description ASC ")->fetchAll();
+        $data = $db->connection("SELECT * FROM daily_car WHERE id_daily_car = $id ")->fetch();
+        echo $jmw->render('modul/daily_car/index', ['act' => 'edit', 'data' => $data,'desc' => $desc,'jenis'=> 'wedding-car','potion' => 'Wedding Car']);
+    });
+
 
     /** Update dan Add Car  **/
     $router->post('/daily-car', function () use ($jmw, $db, $path) {
@@ -387,6 +445,16 @@ $router->mount('/adm', function () use ($router, $db, $jmw, $path,$imgname1) {
             $act = "add";
         }
         $hal = "daily-car";
+        include ($path . 'daily_car/aksi.php');
+    });
+
+    $router->post('/wedding-car', function () use ($jmw, $db, $path) {
+        if (isset($_POST['id_daily_car'])) {
+            $act = "update";
+        } else {
+            $act = "add";
+        }
+        $hal = "wedding-car";
         include ($path . 'daily_car/aksi.php');
     });
 
@@ -405,13 +473,23 @@ $router->mount('/adm', function () use ($router, $db, $jmw, $path,$imgname1) {
 
     /** Show Add Form produk size **/
     $router->get('/daily-description-add-(\d+)', function ($id) use ($jmw, $db) {
-        echo $jmw->render('modul/daily_description/index', ['act' => 'add' , 'id' => $id]);
+        
+        echo $jmw->render('modul/daily_description/index', ['act' => 'add' , 'id' => $id,'jenis'=> 'daily-description','potion' => 'Daily Rent Service']);
     });
+    $router->get('/wedding-description-add-(\d+)', function ($id) use ($jmw, $db) {
+        
+        echo $jmw->render('modul/daily_description/index', ['act' => 'add' , 'id' => $id,'jenis'=> 'wedding-description','potion' => 'Wedding Car']);
+    });
+
 
     /** Show Edit Form produk size **/
     $router->get('/daily-description-edit-(\d+)', function ($id) use ($jmw, $db) {
         $size   = $db->connection("SELECT * FROM daily_description WHERE id_daily_description = $id ")->fetch();
-        echo $jmw->render('modul/daily_description/index', ['act' => 'edit', 'data'=> $size]);
+        echo $jmw->render('modul/daily_description/index', ['act' => 'edit', 'data'=> $size,'jenis'=> 'daily-description','potion' => 'Daily Car Description']);
+    });
+    $router->get('/wedding-description-edit-(\d+)', function ($id) use ($jmw, $db) {
+        $size   = $db->connection("SELECT * FROM daily_description WHERE id_daily_description = $id ")->fetch();
+        echo $jmw->render('modul/daily_description/index', ['act' => 'edit', 'data'=> $size,'jenis'=> 'wedding-description','potion' => 'Wedding Car Description']);
     });
 
     /** Update dan Add produk size  **/
@@ -425,10 +503,25 @@ $router->mount('/adm', function () use ($router, $db, $jmw, $path,$imgname1) {
         include ($path . 'daily_description/aksi.php');
     });
 
+    $router->post('/wedding-description', function () use ($jmw, $db, $path) {
+        if (isset($_POST['id_daily_description'])) {
+            $act = "update";
+        } else {
+            $act = "add";
+        }
+        $hal = "wedding-car";
+        include ($path . 'daily_description/aksi.php');
+    });
+
     /** Delete produk size **/
     $router->get('/daily-description-delete-(\d+)', function ($id) use ($jmw, $db, $path) {
         $act = "remove";
         $hal = "daily-car";
+        include ($path . 'daily_description/aksi.php');
+    });
+    $router->get('/wedding-description-delete-(\d+)', function ($id) use ($jmw, $db, $path) {
+        $act = "remove";
+        $hal = "wedding-car";
         include ($path . 'daily_description/aksi.php');
     });
 

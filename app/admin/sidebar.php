@@ -165,25 +165,25 @@
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item">
-                                    <a href="home" class="sidebar-link">
+                                    <a href="page-edit-11" class="sidebar-link">
                                         <i class="sl-icon-arrow-right"></i>
                                         <span class="hide-menu">Gambar Header</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="home" class="sidebar-link">
+                                    <a href="page-edit-2" class="sidebar-link">
                                         <i class="sl-icon-arrow-right"></i>
                                         <span class="hide-menu">Bagian 1</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="page-edit-1" class="sidebar-link">
+                                    <a href="wedding-car" class="sidebar-link">
                                         <i class="sl-icon-arrow-right"></i>
                                         <span class="hide-menu">Bagian 2 ( Mobil )</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="prakata" class="sidebar-link">
+                                    <a href="page-edit-13" class="sidebar-link">
                                         <i class="sl-icon-arrow-right"></i>
                                         <span class="hide-menu">Bagian 3</span>
                                     </a>
@@ -252,19 +252,43 @@
                             </ul>
                         </li>
 
+                        <li class="nav-small-cap">
+                            <i class="sl-icon-share"></i>
+                            <span class="hide-menu">Media</span>
+                        </li>
+
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="gallery"
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                 aria-expanded="false">
                                 <i class="sl-icon-picture"></i>
-                                <span class="hide-menu">Gallery</span>
+                                <span class="hide-menu">Galeri </span>
                             </a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="video"
+                                        aria-expanded="false">
+                                        <i class="sl-icon-social-stumbleupon"></i>
+                                        <span class="hide-menu">Video</span>
+                                    </a>
+                                </li>
+
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="foto"
+                                        aria-expanded="false">
+                                        <i class="sl-icon-fire"></i>
+                                        <span class="hide-menu">Foto</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
+
+
 
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="artikel"
                                 aria-expanded="false">
                                 <i class="sl-icon-notebook"></i>
-                                <span class="hide-menu">Artikel</span>
+                                <span class="hide-menu">Blog</span>
                             </a>
                         </li>
 

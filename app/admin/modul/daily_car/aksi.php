@@ -105,6 +105,7 @@ elseif ($act == 'add') {
 
                     $datas = array(
                         'judul' => $_POST["nama"],
+                        'jenis' => $_POST["jenis"],
                         'id_daily_kategori' => $_POST["id_daily_kategori"],
                         'gambar' => $nama_file_unik,
                     );

@@ -48,7 +48,9 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="blog">BLOG</a></li>
+                    <li><a href="kontak">KONTAK</a></li>
+                    <li><a href="custom-tour">TOUR CUSTOM</a></li>
                 </ul>
             </nav>
         </div>
