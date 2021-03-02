@@ -8,7 +8,7 @@ if ($act == 'update') {
             'judul' => $_POST["judul"],
             'judul_seo' => $judul_seo,
         );
-        $db->update('portofolio_kategori', $datas, "id_portofolio_kategori = $_POST[id_portofolio_kategori] ");
+        $db->update('tour_kategori', $datas, "id_tour_kategori = $_POST[id_tour_kategori] ");
 
         echo "<script>alert('Data Berhasil diedit'); window.location = '$hal'</script>";
     } catch (PDOException $e) {
@@ -22,8 +22,9 @@ elseif ($act == 'add') {
         $datas = array(
             'judul' => $_POST["judul"],
             'judul_seo' => $judul_seo,
+            'pien' => $_POST["pien"],
         );
-        $saved = $db->insert('portofolio_kategori', $datas);
+        $saved = $db->insert('tour_kategori', $datas);
 
         echo "<script>alert('Datai Berhasil ditambah'); window.location = '$hal'</script>";
 
@@ -34,6 +35,6 @@ elseif ($act == 'add') {
 
 // remove modul
 elseif ($act == 'remove') {
-    $db->delete("portofolio_kategori", "id_portofolio_kategori='$id' ");
+    $db->delete("tour_kategori", "id_tour_kategori='$id' ");
     echo "<script>alert('Data Berhasil dihapus'); window.location = '$hal'</script>";
 }

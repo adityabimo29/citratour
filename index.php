@@ -86,13 +86,30 @@ $router->get('/daily-rent-service', function () use ($templates,$db) {
 });
 
 
-$router->get('/pagu', function () use ($templates,$db) {
+$router->get('/wedding-car', function () use ($templates,$db) {
 
     /** SEO */
     $templates->addData(['seo' => 'detpage','id' => 12]);
 
-    $data        = $db->read('page','*', 'id_page = 17')->fetch(PDO::FETCH_ASSOC);
-    echo $templates->render('page', ['data' => $data,]);
+
+    $header = $db->read('page','*', 'id_page = 11')->fetch(PDO::FETCH_ASSOC);
+    $cars    = $db->connection("SELECT * FROM daily_car WHERE jenis  ='wedding'  ")->fetchAll();
+    $pertama = $db->read('page','*', 'id_page = 2')->fetch(PDO::FETCH_ASSOC);
+    $penutup = $db->read('page','*', 'id_page = 13')->fetch(PDO::FETCH_ASSOC);
+
+    echo $templates->render('wedding', ['header' => $header,'pertama' => $pertama,'cars' => $cars,'penutup'=> $penutup]);
+
+});
+
+$router->get('/transfer-in-out', function () use ($templates,$db) {
+
+    /** SEO */
+    $templates->addData(['seo' => 'detpage','id' => 12]);
+
+    $pertama = $db->read('page','*', 'id_page = 18')->fetch(PDO::FETCH_ASSOC);
+    $kedua = $db->read('page','*', 'id_page = 19')->fetch(PDO::FETCH_ASSOC);
+
+    echo $templates->render('transfer', ['pertama' => $pertama,'kedua' => $kedua]);
 
 });
 

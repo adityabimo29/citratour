@@ -309,7 +309,14 @@
         CKEDITOR.replace('ckeditor', {
             filebrowserBrowseUrl: '../images/filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
             filebrowserUploadUrl: '../images/filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
-            filebrowserImageBrowseUrl: '../images/filemanager/dialog.php?type=2&editor=ckeditor&fldr='
+            filebrowserImageBrowseUrl: '../images/filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
+            skin : 'office2013',
+            extraPlugins: "btgrid,grid,bootstrapTabs",
+            contentsCss: [ 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' ],
+            on: {
+                instanceReady: loadBootstrap,
+                mode: loadBootstrap
+            }
         });
         var toolbarGroups = [
             { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
@@ -331,8 +338,8 @@
         });
         CKEDITOR.replace('ckeditor3', {
             toolbarGroups,
-            skin : 'moonocolor',
-            uiColor: '#9AB8F3',
+            uiColor: '#ffffff',
+            removeButtons : 'Image,Flash,Iframe,Youtube'
         });
 
         CKEDITOR.replace('cksimple', {
@@ -343,6 +350,25 @@
         });
 
     });
+
+    function loadBootstrap(event) {
+        if (event.name == 'mode' && event.editor.mode == 'source')
+            return; // Skip loading jQuery and Bootstrap when switching to source mode.
+
+        var jQueryScriptTag = document.createElement('script');
+        var bootstrapScriptTag = document.createElement('script');
+
+        jQueryScriptTag.src = 'https://code.jquery.com/jquery-1.11.3.min.js';
+        bootstrapScriptTag.src = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js';
+
+        var editorHead = event.editor.document.$.head;
+
+        editorHead.appendChild(jQueryScriptTag);
+        jQueryScriptTag.onload = function() {
+        editorHead.appendChild(bootstrapScriptTag);
+        };
+    }
+         
     </script>
 
 

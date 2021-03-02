@@ -59,7 +59,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="">Nama</label>
-                        <input type="hidden" name="jenis" value="<?=$jenis?>">
+                        <input type="hidden" name="jenis" value="<?=$urk?>">
                         <input type="text" class="form-control" name="nama" required>
                     </div>
                 </div>

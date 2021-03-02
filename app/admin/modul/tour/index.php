@@ -8,7 +8,7 @@
 <section class="content">
     <div class="row">
         <div class="col-md-12">
-            <button class="btn btn-primary" onclick="window.location.href='<?php echo $module; ?>-add';"><i
+            <button class="btn btn-primary" onclick="window.location.href='<?php echo $yuri; ?>-add';"><i
                     class="fa fa-plus" aria-hidden="true"></i> Tambah Data</button>
             <div class="card" style="margin-top:10px">
                 <div class="card-body ">
@@ -37,12 +37,12 @@
                                     <td width="20%" align="center"><?php echo  tgl2($r['tgl']); ?></td>
 
                                     <td align="center" width="20%">
-                                        <a href="<?php echo $module; ?>-edit-<?php echo $r['id_tour']; ?>"
+                                        <a href="<?php echo $yuri; ?>-edit-<?php echo $r['id_tour']; ?>"
                                             class="btn btn-warning " role="button" aria-pressed="true"
                                             style="min-width: 50px;margin-bottom: 5px;"> <i class="fa fa-pencil"></i> Edit</a>
 
                                         <a onClick="javascript: return confirm('Data yang Sudah di Hapus TIDAK BISA Dikembalikan Kembali. Apakah Anda yakin ingin Menghapus Data Ini!!');"
-                                            href="<?php echo $module; ?>-delete-<?php echo $r['id_tour']; ?>"
+                                            href="<?php echo $yuri; ?>-delete-<?php echo $r['id_tour']; ?>"
                                             class="btn btn-danger " role="button" aria-pressed="true"
                                             style="min-width: 60px;margin-bottom: 5px;"> <i class="fa fa-trash"></i> Delete</a>
                                     </td>
@@ -75,7 +75,7 @@
         <div class="col-md-12 ">
             <div class="card">
                 <!-- form start -->
-                <form role="form" action="tour" method="POST"
+                <form role="form" action="<?=$yuri?>" method="POST"
                     enctype="multipart/form-data">
                     <!-- general form elements -->
                     <div class="card-body">
@@ -84,14 +84,29 @@
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Judul<span title="wajib"
                                             style="color: red;">*</span></label>
+                                    <input type="hidden" name="jenis" value="<?=$zelda?>">
                                     <input name="judul" type="text" class="form-control" required>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Harga Mulai <span title="wajib"
                                             style="color: red;">*</span></label>
                                     <input name="harga_mulai" type="text" class="form-control ninjin" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Kategori<span title="wajib"
+                                            style="color: red;">*</span></label>
+                                    <select name="id_tour_kategori" class="form-control">
+                                        <?php
+                                        
+                                        foreach($kat as $r) :
+                                        ?>
+                                        <option value="<?=$r['id_tour_kategori']?>"><?=$r['judul']?></option>
+                                        <?php endforeach?>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -130,7 +145,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Deskripsi</label>
-                                    <textarea id="ckeditor" class="ckeditor" name="deskripsi"></textarea>
+                                    <textarea id="ckeditor"  name="deskripsi"></textarea>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -210,7 +225,7 @@
         <div class="col-md-12 ">
             <div class="card">
                 <!-- form start -->
-                <form role="form" action="tour" method="POST"
+                <form role="form" action="<?=$yuri?>" method="POST"
                     enctype="multipart/form-data">
                     <input type="hidden" name="id_tour" value="<?php echo $data['id_tour'] ?>">
                     <!-- general form elements -->
@@ -225,11 +240,24 @@
                                         value="<?php echo $data['judul'] ?>" required>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Harga Mulai <span title="wajib"
                                             style="color: red;">*</span></label>
                                     <input name="harga_mulai" type="text" class="form-control ninjin" required value="<?php echo $data['harga_mulai'] ?>">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Kategori<span title="wajib"
+                                            style="color: red;">*</span></label>
+                                    <select name="id_tour_kategori" class="form-control">
+                                        <?php
+                                        foreach($kat as $r) :
+                                        ?>
+                                        <option value="<?=$r['id_tour_kategori']?>" <?=($data['id_tour_kategori'] == $r['id_tour_kategori'])? 'selected' : '' ?> ><?=$r['judul']?></option>
+                                        <?php endforeach?>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -335,7 +363,7 @@
                     <div class="card-footer pb-5">
                         <button type="submit" class="mb-2 btn btn-success float-left">Simpan</button>
                         <input type="button" class="mb-2 btn btn-secondary float-right" value="Kembali"
-                            onclick="location.href='<?php echo $module; ?>' ">
+                            onclick="location.href='<?php echo $yuri; ?>' ">
                     </div>
                 </form>
             </div>

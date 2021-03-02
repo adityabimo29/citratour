@@ -756,38 +756,149 @@ $router->mount('/admin', function () use ($router, $db, $jmw, $path,$imgname1) {
  */
 
     /** Url Tour **/
-    $router->get('/tour', function () use ($jmw, $db) {
-        $dataku = $db->connection("SELECT * FROM tour");
-        echo $jmw->render('modul/tour/index', ['act' => 'list', 'tampil' => $dataku]);
+    $router->get('/tour-lain', function () use ($jmw, $db) {
+        $zelda = 'lain';
+        $yuri  = 'tour-lain';
+        $dataku = $db->connection("SELECT * FROM tour WHERE jenis = 'lain' ");
+        echo $jmw->render('modul/tour/index', ['act' => 'list', 'tampil' => $dataku,'zelda' => $zelda, 'yuri' => $yuri]);
     });
 
     /** Show Add Form Tour **/
-    $router->get('/tour-add', function () use ($jmw, $db) {
-        echo $jmw->render('modul/tour/index', ['act' => 'add']);
+    $router->get('/tour-lain-add', function () use ($jmw, $db) {
+        $zelda = 'lain';
+        $yuri  = 'tour-lain';
+        $kat = $db->connection("SELECT * FROM tour_kategori WHERE pien ='$yuri' ")->fetchAll();
+        echo $jmw->render('modul/tour/index', ['act' => 'add','zelda' => $zelda, 'yuri' => $yuri,'kat' => $kat]);
     });
 
     /** Show Edit Form Tour **/
-    $router->get('/tour-edit-(\d+)', function ($id) use ($jmw, $db) {
+    $router->get('/tour-lain-edit-(\d+)', function ($id) use ($jmw, $db) {
+        $zelda = 'lain';
+        $yuri  = 'tour-lain';
         $data = $db->connection("SELECT * FROM tour WHERE id_tour = $id ")->fetch();
-        echo $jmw->render('modul/tour/index', ['act' => 'edit', 'data' => $data]);
+        $kat = $db->connection("SELECT * FROM tour_kategori WHERE pien ='$yuri' ")->fetchAll();
+        echo $jmw->render('modul/tour/index', ['act' => 'edit', 'data' => $data,'zelda' => $zelda, 'yuri' => $yuri,'kat' => $kat]);
     });
 
     /** Update dan Add Tour  **/
-    $router->post('/tour', function () use ($jmw, $db, $path) {
+    $router->post('/tour-lain', function () use ($jmw, $db, $path) {
         if (isset($_POST['id_tour'])) {
             $act = "update";
         } else {
             $act = "add";
         }
-        $hal = "tour";
+        $hal = "tour-lain";
         include ($path . 'tour/aksi.php');
     });
 
     /** Delete Tour **/
-    $router->get('/tour-delete-(\d+)', function ($id) use ($jmw, $db, $path) {
+    $router->get('/tour-lain-delete-(\d+)', function ($id) use ($jmw, $db, $path) {
         $act = "remove";
-        $hal = "tour";
+        $hal = "tour-lain";
         include ($path . 'tour/aksi.php');
+    });
+
+    /** Url Tour **/
+    $router->get('/tour-jogja', function () use ($jmw, $db) {
+        $zelda = 'jogja';
+        $yuri  = 'tour-jogja';
+        $dataku = $db->connection("SELECT * FROM tour WHERE jenis = 'jogja' ");
+        echo $jmw->render('modul/tour/index', ['act' => 'list', 'tampil' => $dataku,'zelda' => $zelda, 'yuri' => $yuri]);
+    });
+
+    /** Show Add Form Tour **/
+    $router->get('/tour-jogja-add', function () use ($jmw, $db) {
+        $zelda = 'jogja';
+        $yuri  = 'tour-jogja';
+        $kat = $db->connection("SELECT * FROM tour_kategori WHERE pien ='$yuri' ")->fetchAll();
+        echo $jmw->render('modul/tour/index', ['act' => 'add','zelda' => $zelda, 'yuri' => $yuri,'kat' => $kat]);
+    });
+
+    /** Show Edit Form Tour **/
+    $router->get('/tour-jogja-edit-(\d+)', function ($id) use ($jmw, $db) {
+        $zelda = 'jogja';
+        $yuri  = 'tour-jogja';
+        $data = $db->connection("SELECT * FROM tour WHERE id_tour = $id ")->fetch();
+        $kat = $db->connection("SELECT * FROM tour_kategori WHERE pien ='$yuri' ")->fetchAll();
+        echo $jmw->render('modul/tour/index', ['act' => 'edit', 'data' => $data,'zelda' => $zelda, 'yuri' => $yuri,'kat' => $kat]);
+    });
+
+    /** Update dan Add Tour  **/
+    $router->post('/tour-jogja', function () use ($jmw, $db, $path) {
+        if (isset($_POST['id_tour'])) {
+            $act = "update";
+        } else {
+            $act = "add";
+        }
+        $hal = "tour-jogja";
+        include ($path . 'tour/aksi.php');
+    });
+
+    /** Delete Tour **/
+    $router->get('/tour-jogja-delete-(\d+)', function ($id) use ($jmw, $db, $path) {
+        $act = "remove";
+        $hal = "tour-jogja";
+        include ($path . 'tour/aksi.php');
+    });
+
+    
+
+/*
+ * ------------------------------------------------------
+ *  Router Kategori Tour
+ * ------------------------------------------------------
+ */
+
+    /** Url Tour Kategori **/
+    $router->get('/tour-kategori-lain', function () use ($jmw, $db) {
+        $zelda = 'tour-kategori-lain';
+        $yuri  = 'tour-lain';
+        $tampil = $db->connection("SELECT * FROM tour_kategori WHERE pien ='tour-lain'  ORDER BY id_tour_kategori DESC");
+        echo $jmw->render('modul/tour_kategori/index', ['act' => 'list', 'tampil' => $tampil,'zelda' => $zelda, 'yuri' => $yuri]);
+    });
+
+    /** Update dan Add Tour Kategori **/
+    $router->post('/tour-kategori-lain', function () use ($jmw, $db, $path) {
+        if (isset($_POST['id_tour_kategori'])) {
+            $act = "update";
+        } else {
+            $act = "add";
+        }
+        $hal = "tour-kategori-lain";
+        include ($path . 'tour_kategori/aksi.php');
+    });
+
+    /** Delete Tour Kategori **/
+    $router->get('/tour-kategori-lain-delete-(\d+)', function ($id) use ($jmw, $db, $path) {
+        $act = "remove";
+        $hal = "tour-kategori-lain";
+        include ($path . 'tour_kategori/aksi.php');
+    });
+
+    /** Url Tour Kategori **/
+    $router->get('/tour-kategori-jogja', function () use ($jmw, $db) {
+        $zelda = 'tour-kategori-jogja';
+        $yuri  = 'tour-lain';
+        $tampil = $db->connection("SELECT * FROM tour_kategori WHERE pien ='tour-lain'  ORDER BY id_tour_kategori DESC");
+        echo $jmw->render('modul/tour_kategori/index', ['act' => 'list', 'tampil' => $tampil,'zelda' => $zelda, 'yuri' => $yuri]);
+    });
+
+    /** Update dan Add Tour Kategori **/
+    $router->post('/tour-kategori-jogja', function () use ($jmw, $db, $path) {
+        if (isset($_POST['id_tour_kategori'])) {
+            $act = "update";
+        } else {
+            $act = "add";
+        }
+        $hal = "tour-kategori-jogja";
+        include ($path . 'tour_kategori/aksi.php');
+    });
+
+    /** Delete Tour Kategori **/
+    $router->get('/tour-kategori-jogja-delete-(\d+)', function ($id) use ($jmw, $db, $path) {
+        $act = "remove";
+        $hal = "tour-kategori-jogja";
+        include ($path . 'tour_kategori/aksi.php');
     });
 
 

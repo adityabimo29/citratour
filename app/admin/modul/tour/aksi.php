@@ -29,6 +29,7 @@ use \Gumlet\ImageResize;
                     try {
 
                         $datas = array(
+                            'id_tour_kategori' => $_POST['id_tour_kategori'],
                             'judul' => $_POST['judul'],
                             'judul_seo' => $judul_seo,
                             'deskripsi' => $_POST['deskripsi'],
@@ -69,6 +70,7 @@ use \Gumlet\ImageResize;
         } else {
             try {
                 $datas = array(
+                    'id_tour_kategori' => $_POST['id_tour_kategori'],
                     'judul' => $_POST['judul'],
                     'id_admin' => $_SESSION['id_admin'],
                     'judul_seo' => $judul_seo,
@@ -110,6 +112,8 @@ use \Gumlet\ImageResize;
         } else {
             try {
                 $datas = array(
+                    'jenis' => $_POST['jenis'],
+                    'id_tour_kategori' => $_POST['id_tour_kategori'],
                     'judul' => $_POST['judul'],
                     'id_admin' => $_SESSION['id_admin'],
                     'judul_seo' => $judul_seo,

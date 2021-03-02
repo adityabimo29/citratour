@@ -1,10 +1,10 @@
-<?php $this->layout('template', ['hal'=>'Portofolio Kategori']) ?>
+<?php $this->layout('template', ['hal'=>'Tour Kategori']) ?>
 <?php
-	$module = 'kategori-portofolio';
+	$module = 'tour_kategori';
 	switch($act){
 		case "list":
 	?>      
-        <a href="portofolio" class="btn btn-success" > <i class="sl-icon-magic-wand"></i> Portofolio</a>
+        <a href="<?=$yuri?>" class="btn btn-success" > <i class="sl-icon-magic-wand"></i> Tour</a>
         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#addModal" > <i class="fa fa-plus"></i> Tambah Data</button>
 			<section class="content" style="margin-top:10px">
 				<div class="row">
@@ -28,12 +28,12 @@
 								<td width="5%" align="center"><?php echo  $no; ?></td>
 								<td><?php echo  $r['judul']; ?></td>               
 								<td align="center" style="width:20%">
-									<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#<?php echo $r['id_portofolio_kategori'] ?>" > <i class="fas fa-pencil-alt"></i> Edit</button>
-									<a onClick="javascript: return confirm('Yakin untuk Menghapus data ?');" href="<?php echo $module; ?>-delete-<?php echo $r['id_portofolio_kategori']; ?>"  class="btn btn-danger btnadmin" role="button" aria-pressed="true" style="min-width: 60px;"> <i class="fa fa-trash"></i> Delete</a>
+									<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#<?php echo $r['id_tour_kategori'] ?>" > <i class="fas fa-pencil-alt"></i> Edit</button>
+									<a onClick="javascript: return confirm('Yakin untuk Menghapus data ?');" href="<?php echo $module; ?>-delete-<?php echo $r['id_tour_kategori']; ?>"  class="btn btn-danger btnadmin" role="button" aria-pressed="true" style="min-width: 60px;"> <i class="fa fa-trash"></i> Delete</a>
 								</td>
 							</tr>
 						<!-- modal edit content -->
-						<div id="<?php echo $r['id_portofolio_kategori'] ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+						<div id="<?php echo $r['id_tour_kategori'] ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
 							<div class="modal-dialog modal-lg">
 								<div class="modal-content">
 									<div class="modal-header">
@@ -41,8 +41,8 @@
 										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 									</div>
 									<div class="modal-body">
-										<form action="kategori-portofolio" method="POST" enctype="multipart/form-data">
-										<input type="hidden" name="id_portofolio_kategori" value="<?php echo $r['id_portofolio_kategori']; ?>">
+										<form action="<?=$zelda?>" method="POST" enctype="multipart/form-data">
+										<input type="hidden" name="id_tour_kategori" value="<?php echo $r['id_tour_kategori']; ?>">
 											<div class="form-group">
 												<label for="recipient-name" class="control-label">Judul</label>
 												<input type="text" class="form-control" id="judul" name="judul" value="<?php echo $r['judul'] ?>">
@@ -70,7 +70,7 @@
                 </div>
 			</section><!-- /.col -->
 
-		<!-- modal add portofolio_kategori content -->
+		<!-- modal add tour_kategori content -->
 		<div id="addModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
             <div class="modal-dialog ">
                 <div class="modal-content">
@@ -79,10 +79,11 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
-                        <form action="kategori-portofolio" method="POST" enctype="multipart/form-data">
+                        <form action="<?=$zelda?>" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="recipient-name" class="control-label">Nama</label>
                                 <input type="text" class="form-control" id="judul" name="judul">
+								<input type="hidden" name="pien" value="<?=$yuri?>">
                             </div>
                     </div>
                     <div class="modal-footer">
@@ -107,12 +108,12 @@
 				  <!-- general form elements -->
 				  <div class="card-body">
 					<!-- form start -->
-					<form role="form" action="modul/portofolio_kategori/aksi.php?module=<?php echo $module; ?>&act=add" method="POST" enctype="multipart/form-data" >
+					<form role="form" action="modul/tour_kategori/aksi.php?module=<?php echo $module; ?>&act=add" method="POST" enctype="multipart/form-data" >
 						<div class="box-body table-responsive">
 							<div class="col-md-12">
 								<div class="form-group">
-									<label for="exampleInputEmail1">judul portofolio_kategori <span title="wajib" style="color: red;">*</span></label>
-                                    <input name="portofolio_kategori" type="hidden" class="form-control" value="<?php echo $kat_nyan; ?>">
+									<label for="exampleInputEmail1">judul tour_kategori <span title="wajib" style="color: red;">*</span></label>
+                                    <input name="tour_kategori" type="hidden" class="form-control" value="<?php echo $kat_nyan; ?>">
 									<input name="judul" type="text" class="form-control" required>
 								</div>
 							</div>
@@ -132,7 +133,7 @@
 	<?php
 		break;
 		case "edit":
-		$edit = $db->connection("SELECT * FROM portofolio_kategori WHERE id_portofolio_kategori='$_GET[id]'");
+		$edit = $db->connection("SELECT * FROM tour_kategori WHERE id_tour_kategori='$_GET[id]'");
 		$tedit = $edit->fetch(PDO::FETCH_ASSOC);
 
 
@@ -146,14 +147,14 @@
 				  <!-- general form elements -->
 				  <div class="ccard-body">
 					<!-- form start -->
-					<form role="form" action="modul/portofolio_kategori/aksi.php?module=<?php echo $module; ?>&act=update" method="POST" enctype="multipart/form-data" >
-						<input type="hidden" name="id_portofolio_kategori" value="<?php echo $tedit['id_portofolio_kategori']; ?>">
+					<form role="form" action="modul/tour_kategori/aksi.php?module=<?php echo $module; ?>&act=update" method="POST" enctype="multipart/form-data" >
+						<input type="hidden" name="id_tour_kategori" value="<?php echo $tedit['id_tour_kategori']; ?>">
 
 						<div class="box-body table-responsive">
 
 							<div class="col-md-12">
 								<div class="form-group">
-									<label for="exampleInputEmail1">judul portofolio_kategori <span title="wajib" style="color: red;">*</span></label>
+									<label for="exampleInputEmail1">judul tour_kategori <span title="wajib" style="color: red;">*</span></label>
 									<input name="judul" type="text" class="form-control" value="<?php echo $tedit['judul']; ?>" required>
 								</div>
 							</div>
@@ -188,7 +189,7 @@
 						<section class="content">
 						  <div class="row">
 							<!-- left column -->
-							<form role="form" action="modul/portofolio_kategori/aksi.php?module=<?php echo $module; ?>&act=addgallery" method="POST" enctype="multipart/form-data" >
+							<form role="form" action="modul/tour_kategori/aksi.php?module=<?php echo $module; ?>&act=addgallery" method="POST" enctype="multipart/form-data" >
 								<input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
 
 							<div class="col-md-12">

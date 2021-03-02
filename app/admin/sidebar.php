@@ -137,21 +137,15 @@
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item">
-                                    <a href="home" class="sidebar-link">
+                                    <a href="page-edit-18" class="sidebar-link">
                                         <i class="sl-icon-arrow-right"></i>
                                         <span class="hide-menu">Bagian 1</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="page-edit-1" class="sidebar-link">
+                                    <a href="page-edit-19" class="sidebar-link">
                                         <i class="sl-icon-arrow-right"></i>
                                         <span class="hide-menu">Bagian 2</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="prakata" class="sidebar-link">
-                                        <i class="sl-icon-arrow-right"></i>
-                                        <span class="hide-menu">Bagian 3</span>
                                     </a>
                                 </li>
                             </ul>
@@ -203,19 +197,47 @@
                             <span class="hide-menu">Paket Tour</span>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tour"
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                 aria-expanded="false">
                                 <i class="sl-icon-social-stumbleupon"></i>
-                                <span class="hide-menu">Paket Tour Jogja</span>
+                                <span class="hide-menu">Paket Tour Jogja </span>
                             </a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item">
+                                    <a href="tour-jogja" class="sidebar-link">
+                                        <i class="sl-icon-arrow-right"></i>
+                                        <span class="hide-menu">Tour Jogja</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="tour-kategori-jogja" class="sidebar-link">
+                                        <i class="sl-icon-arrow-right"></i>
+                                        <span class="hide-menu">Kategori</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="page-edit-14"
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                 aria-expanded="false">
                                 <i class="sl-icon-fire"></i>
-                                <span class="hide-menu">Paket Tour Lainnya</span>
+                                <span class="hide-menu">Paket Tour Lainnya </span>
                             </a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item">
+                                    <a href="tour-lain" class="sidebar-link">
+                                        <i class="sl-icon-arrow-right"></i>
+                                        <span class="hide-menu">Tour</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="tour-kategori-lain" class="sidebar-link">
+                                        <i class="sl-icon-arrow-right"></i>
+                                        <span class="hide-menu">Kategori</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
 
                         <li class="sidebar-item">
