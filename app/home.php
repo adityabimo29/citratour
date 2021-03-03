@@ -1,571 +1,146 @@
 <?php $this->layout('template') ?>
-<section class="banner-area relative">
+<section class="banner-area relative martip">
     <div class="overlay overlay-bg"></div>
     <ul id="slider-home">
         <?php foreach($slider as $r) : ?>
         <li>
-            <a href="#slide1"><img src="images/slider/<?=$r['gambar']?>" ></a>
+            <a href="#slide1"><img class="img-slider" src="images/slider/<?=$r['gambar']?>"></a>
         </li>
         <?php endforeach ?>
     </ul>
 </section>
 
-
 <section class="popular-destination-area section-gap">
     <div class="container">
         <div class="row d-flex justify-content-center">
-            <div class="menu-content pb-70 col-lg-8">
+            <div class="menu-content pb-30 col-lg-8">
                 <div class="title text-center">
-                    <h1 class="mb-10">Popular Destinations</h1>
-                    <p>We all live in an age that belongs to the young at heart. Life that is becoming extremely
-                        fast, day.</p>
+                    <h1 class="mb-10">PAKET RENTAL MOBIL</h1>
+                    <p>Jaminan rasa aman dan nyaman kami menyediakan unit terbaru dengan kondisi armada prima, bersih
+                        terawat luar dalam.</p>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4">
-                <div class="single-destination relative">
-                    <div class="thumb relative">
-                        <div class="overlay overlay-bg"></div>
-                        <img class="img-fluid" src="img/d1.jpg" alt="">
-                    </div>
-                    <div class="desc">
-                        <a href="#" class="price-btn">$150</a>
-                        <h4>Mountain River</h4>
-                        <p>Paraguay</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="single-destination relative">
-                    <div class="thumb relative">
-                        <div class="overlay overlay-bg"></div>
-                        <img class="img-fluid" src="img/d2.jpg" alt="">
-                    </div>
-                    <div class="desc">
-                        <a href="#" class="price-btn">$250</a>
-                        <h4>Dream City</h4>
-                        <p>Paris</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="single-destination relative">
-                    <div class="thumb relative">
-                        <div class="overlay overlay-bg"></div>
-                        <img class="img-fluid" src="img/d3.jpg" alt="">
-                    </div>
-                    <div class="desc">
-                        <a href="#" class="price-btn">$350</a>
-                        <h4>Cloud Mountain</h4>
-                        <p>Sri Lanka</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<section class="price-area section-gap">
-    <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="menu-content pb-70 col-lg-8">
-                <div class="title text-center">
-                    <h1 class="mb-10">We Provide Affordable Prices</h1>
-                    <p>Well educated, intellectual people, especially scientists at all times demonstrate
-                        considerably.</p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="single-price">
-                    <h4>Cheap Packages</h4>
-                    <ul class="price-list">
-                        <li class="d-flex justify-content-between align-items-center">
-                            <span>New York</span>
-                            <a href="#" class="price-btn">$1500</a>
-                        </li>
-                        <li class="d-flex justify-content-between align-items-center">
-                            <span>Maldives</span>
-                            <a href="#" class="price-btn">$1500</a>
-                        </li>
-                        <li class="d-flex justify-content-between align-items-center">
-                            <span>Sri Lanka</span>
-                            <a href="#" class="price-btn">$1500</a>
-                        </li>
-                        <li class="d-flex justify-content-between align-items-center">
-                            <span>Nepal</span>
-                            <a href="#" class="price-btn">$1500</a>
-                        </li>
-                        <li class="d-flex justify-content-between align-items-center">
-                            <span>Thiland</span>
-                            <a href="#" class="price-btn">$1500</a>
-                        </li>
-                        <li class="d-flex justify-content-between align-items-center">
-                            <span>Singapore</span>
-                            <a href="#" class="price-btn">$1500</a>
-                        </li>
+            <?php foreach($car as $c) : ?>
+            <?php  $desc = $db->connection("SELECT * FROM daily_description WHERE id_daily_car = $c[id_daily_car] LIMIT 1")->fetchAll(); ?>
+            <div class="col-lg-3">
+                <div class="card">
+                    <img class="card-img-top" src="images/daily_car/<?=$c['gambar']?>" alt="<?=$c['judul']?>">
+                    <div class="card-header text-center bg-grey text-black"><?=$c['judul']?></div>
+                    <ul class="list-group list-group-flush text-center">
+                        <?php foreach($desc as $d) : ?>
+                        <li class="list-group-item"><?=$d['deskripsi']?></li>
+                        <?php endforeach ?>
                     </ul>
+                    <div class="card-body d-flex justify-content-center">
+                        <a href="#" class="btn btn-warning">Booking Now</a>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="single-price">
-                    <h4>Luxury Packages</h4>
-                    <ul class="price-list">
-                        <li class="d-flex justify-content-between align-items-center">
-                            <span>New York</span>
-                            <a href="#" class="price-btn">$1500</a>
-                        </li>
-                        <li class="d-flex justify-content-between align-items-center">
-                            <span>Maldives</span>
-                            <a href="#" class="price-btn">$1500</a>
-                        </li>
-                        <li class="d-flex justify-content-between align-items-center">
-                            <span>Sri Lanka</span>
-                            <a href="#" class="price-btn">$1500</a>
-                        </li>
-                        <li class="d-flex justify-content-between align-items-center">
-                            <span>Nepal</span>
-                            <a href="#" class="price-btn">$1500</a>
-                        </li>
-                        <li class="d-flex justify-content-between align-items-center">
-                            <span>Thiland</span>
-                            <a href="#" class="price-btn">$1500</a>
-                        </li>
-                        <li class="d-flex justify-content-between align-items-center">
-                            <span>Singapore</span>
-                            <a href="#" class="price-btn">$1500</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="single-price">
-                    <h4>Camping Packages</h4>
-                    <ul class="price-list">
-                        <li class="d-flex justify-content-between align-items-center">
-                            <span>New York</span>
-                            <a href="#" class="price-btn">$1500</a>
-                        </li>
-                        <li class="d-flex justify-content-between align-items-center">
-                            <span>Maldives</span>
-                            <a href="#" class="price-btn">$1500</a>
-                        </li>
-                        <li class="d-flex justify-content-between align-items-center">
-                            <span>Sri Lanka</span>
-                            <a href="#" class="price-btn">$1500</a>
-                        </li>
-                        <li class="d-flex justify-content-between align-items-center">
-                            <span>Nepal</span>
-                            <a href="#" class="price-btn">$1500</a>
-                        </li>
-                        <li class="d-flex justify-content-between align-items-center">
-                            <span>Thiland</span>
-                            <a href="#" class="price-btn">$1500</a>
-                        </li>
-                        <li class="d-flex justify-content-between align-items-center">
-                            <span>Singapore</span>
-                            <a href="#" class="price-btn">$1500</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <?php endforeach ?>
         </div>
     </div>
 </section>
-
-
-<section class="other-issue-area section-gap">
+<section class="popular-destination-area section-gap">
     <div class="container">
         <div class="row d-flex justify-content-center">
-            <div class="menu-content pb-70 col-lg-9">
+            <div class="menu-content pb-30 col-lg-8">
                 <div class="title text-center">
-                    <h1 class="mb-10">Other issues we can help you with</h1>
-                    <p>We all live in an age that belongs to the young at heart. Life that is.</p>
+                    <h1 class="mb-10">PAKET TOUR JOGJA</h1>
+                    <p>Kami sangat mengedepankan kualitas pelayanan, fasilitas, dan kenyamanan dari paket tour Jogja
+                        kami untuk anda selama berwisata di Yogyakarta. </p>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <div class="single-other-issue">
-                    <div class="thumb">
-                        <img class="img-fluid" src="img/o1.jpg" alt="">
+            <?php foreach($tour as $r) : ?>
+            <?php $kat = $db->connection("SELECT judul FROM tour_kategori WHERE id_tour_kategori = $r[id_tour_kategori] ")->fetchColumn(); ?>
+            <div class="col-md-4 mb-4">
+                <div class="card p-2" style="box-shadow: 2px 0px 5px 0px rgba(0,0,0,0.75);">
+                    <div class="package-item package-fadein">
+                        <div class="square">
+                            <div class="square-content">
+                                <div class="img-wrap">
+                                    <figure class="effect-zoom">
+                                        <div class="package-price">
+                                            <small>Mulai dari</small>
+                                            <span>Rp <?=$r['harga_mulai']?></span>
+                                        </div>
+                                        <a href="#"><img src="images/tour/small/<?=$r['gambar']?>"
+                                                class="landscape grow"></a>
+                                        <figcaption>
+                                            <a href="#" class="package-title"><?=$r['destinasi']?></a>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p class="package-duration"><?php //echo $kat?></p>
+                                                    <div class="package-star text-right">
+                                                        <ul class="package-category">
+                                                            <li><a class="badge"
+                                                                    href="kategori-one-day-trip-5"><?=$r['judul']?></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <a href="#">
-                        <h4>Rent a Car</h4>
-                    </a>
-                    <p>
-                        The preservation of human life is the ultimate value, a pillar of ethics and the foundation.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="single-other-issue">
-                    <div class="thumb">
-                        <img class="img-fluid" src="img/o2.jpg" alt="">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2">
+                            <a href="#" class="btn btn-info btn-block">Pesan Sekarang !</a>
+                        </div>
                     </div>
-                    <a href="#">
-                        <h4>Cruise Booking</h4>
-                    </a>
-                    <p>
-                        I was always somebody who felt quite sorry for myself, what I had not got compared.
-                    </p>
-                </div>
+                </div><!-- Card -->
             </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="single-other-issue">
-                    <div class="thumb">
-                        <img class="img-fluid" src="img/o3.jpg" alt="">
-                    </div>
-                    <a href="#">
-                        <h4>To Do List</h4>
-                    </a>
-                    <p>
-                        The following article covers a topic that has recently moved to center stage–at least it
-                        seems.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="single-other-issue">
-                    <div class="thumb">
-                        <img class="img-fluid" src="img/o4.jpg" alt="">
-                    </div>
-                    <a href="#">
-                        <h4>Food Features</h4>
-                    </a>
-                    <p>
-                        There are many kinds of narratives and organizing principles. Science is driven by evidence.
-                    </p>
-                </div>
-            </div>
+            <?php endforeach ?>
         </div>
     </div>
 </section>
-
-
-<section class="testimonial-area section-gap">
+<section class="popular-destination-area section-gap bg-abu">
     <div class="container">
         <div class="row d-flex justify-content-center">
-            <div class="menu-content pb-70 col-lg-8">
+            <div class="menu-content pb-30 col-lg-8">
                 <div class="title text-center">
-                    <h1 class="mb-10">Testimonial from our Clients</h1>
-                    <p>The French Revolution constituted for the conscience of the dominant aristocratic class a
-                        fall from </p>
+                    <h1 class="mb-10">MENGAPA MEMILIH KAMI ?</h1>
+                    <p>Kami sangat mengedepankan kualitas pelayanan, fasilitas, dan kenyamanan dari paket tour Jogja
+                        kami untuk anda selama berwisata di Yogyakarta. </p>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="active-testimonial">
-                <div class="single-testimonial item d-flex flex-row">
-                    <div class="thumb">
-                        <img class="img-fluid" src="img/elements/user1.png" alt="">
-                    </div>
-                    <div class="desc">
-                        <p>
-                            Do you want to be even more successful? Learn to love learning and growth. The more
-                            effort you put into improving your skills, the bigger the payoff you.
-                        </p>
-                        <h4>Harriet Maxwell</h4>
-                        <div class="star">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
+            <?php foreach($keunggulan as $r) : ?>
+            <div class="col-md-3 mb-4 text-center">
+                <div class="d-flex justify-content-center mb-3">
+                    <div class="box-icon">
+                        <i class="<?=$r['gambar']?>"></i>
                     </div>
                 </div>
-                <div class="single-testimonial item d-flex flex-row">
-                    <div class="thumb">
-                        <img class="img-fluid" src="img/elements/user2.png" alt="">
-                    </div>
-                    <div class="desc">
-                        <p>
-                            A purpose is the eternal condition for success. Every former smoker can tell you just
-                            how hard it is to stop smoking cigarettes. However.
-                        </p>
-                        <h4>Carolyn Craig</h4>
-                        <div class="star">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-testimonial item d-flex flex-row">
-                    <div class="thumb">
-                        <img class="img-fluid" src="img/elements/user1.png" alt="">
-                    </div>
-                    <div class="desc">
-                        <p>
-                            Do you want to be even more successful? Learn to love learning and growth. The more
-                            effort you put into improving your skills, the bigger the payoff you.
-                        </p>
-                        <h4>Harriet Maxwell</h4>
-                        <div class="star">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-testimonial item d-flex flex-row">
-                    <div class="thumb">
-                        <img class="img-fluid" src="img/elements/user2.png" alt="">
-                    </div>
-                    <div class="desc">
-                        <p>
-                            A purpose is the eternal condition for success. Every former smoker can tell you just
-                            how hard it is to stop smoking cigarettes. However.
-                        </p>
-                        <h4>Carolyn Craig</h4>
-                        <div class="star">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-testimonial item d-flex flex-row">
-                    <div class="thumb">
-                        <img class="img-fluid" src="img/elements/user1.png" alt="">
-                    </div>
-                    <div class="desc">
-                        <p>
-                            Do you want to be even more successful? Learn to love learning and growth. The more
-                            effort you put into improving your skills, the bigger the payoff you.
-                        </p>
-                        <h4>Harriet Maxwell</h4>
-                        <div class="star">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-testimonial item d-flex flex-row">
-                    <div class="thumb">
-                        <img class="img-fluid" src="img/elements/user2.png" alt="">
-                    </div>
-                    <div class="desc">
-                        <p>
-                            A purpose is the eternal condition for success. Every former smoker can tell you just
-                            how hard it is to stop smoking cigarettes. However.
-                        </p>
-                        <h4>Carolyn Craig</h4>
-                        <div class="star">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                    </div>
-                </div>
+
+                <h4 class="mb-2"><?=$r['judul']?></h4>
+                <p><?=$r['deskripsi']?></p>
             </div>
+            <?php endforeach ?>
         </div>
     </div>
 </section>
-
-
-<section class="home-about-area">
-    <div class="container-fluid">
-        <div class="row align-items-center justify-content-end">
-            <div class="col-lg-6 col-md-12 home-about-left">
-                <h1>
-                    Did not find your Package? <br>
-                    Feel free to ask us. <br>
-                    We‘ll make it for you
-                </h1>
-                <p>
-                    inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct
-                    standards especially in the workplace. That’s why it’s crucial that, as women, our behavior on
-                    the job is beyond reproach. inappropriate behavior is often laughed.
-                </p>
-                <a href="#" class="primary-btn text-uppercase">request custom price</a>
-            </div>
-            <div class="col-lg-6 col-md-12 home-about-right no-padding">
-                <img class="img-fluid" src="img/about-img.jpg" alt="">
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<section class="recent-blog-area section-gap">
+<section class="popular-destination-area section-gap">
     <div class="container">
         <div class="row d-flex justify-content-center">
-            <div class="menu-content pb-60 col-lg-9">
+            <div class="menu-content pb-30 col-lg-8">
                 <div class="title text-center">
-                    <h1 class="mb-10">Latest from Our Blog</h1>
-                    <p>With the exception of Nietzsche, no other madman has contributed so much to human sanity as
-                        has.</p>
+                    <h1 class="mb-10">CLIENT KAMI</h1>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="active-recent-blog-carusel">
-                <div class="single-recent-blog-post item">
-                    <div class="thumb">
-                        <img class="img-fluid" src="img/b1.jpg" alt="">
-                    </div>
-                    <div class="details">
-                        <div class="tags">
-                            <ul>
-                                <li>
-                                    <a href="#">Travel</a>
-                                </li>
-                                <li>
-                                    <a href="#">Life Style</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="#">
-                            <h4 class="title">Low Cost Advertising</h4>
-                        </a>
-                        <p>
-                            Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A
-                            farmer.
-                        </p>
-                        <h6 class="date">31st January,2018</h6>
-                    </div>
-                </div>
-                <div class="single-recent-blog-post item">
-                    <div class="thumb">
-                        <img class="img-fluid" src="img/b2.jpg" alt="">
-                    </div>
-                    <div class="details">
-                        <div class="tags">
-                            <ul>
-                                <li>
-                                    <a href="#">Travel</a>
-                                </li>
-                                <li>
-                                    <a href="#">Life Style</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="#">
-                            <h4 class="title">Creative Outdoor Ads</h4>
-                        </a>
-                        <p>
-                            Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A
-                            farmer.
-                        </p>
-                        <h6 class="date">31st January,2018</h6>
-                    </div>
-                </div>
-                <div class="single-recent-blog-post item">
-                    <div class="thumb">
-                        <img class="img-fluid" src="img/b3.jpg" alt="">
-                    </div>
-                    <div class="details">
-                        <div class="tags">
-                            <ul>
-                                <li>
-                                    <a href="#">Travel</a>
-                                </li>
-                                <li>
-                                    <a href="#">Life Style</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="#">
-                            <h4 class="title">It's Classified How To Utilize Free</h4>
-                        </a>
-                        <p>
-                            Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A
-                            farmer.
-                        </p>
-                        <h6 class="date">31st January,2018</h6>
-                    </div>
-                </div>
-                <div class="single-recent-blog-post item">
-                    <div class="thumb">
-                        <img class="img-fluid" src="img/b1.jpg" alt="">
-                    </div>
-                    <div class="details">
-                        <div class="tags">
-                            <ul>
-                                <li>
-                                    <a href="#">Travel</a>
-                                </li>
-                                <li>
-                                    <a href="#">Life Style</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="#">
-                            <h4 class="title">Low Cost Advertising</h4>
-                        </a>
-                        <p>
-                            Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A
-                            farmer.
-                        </p>
-                        <h6 class="date">31st January,2018</h6>
-                    </div>
-                </div>
-                <div class="single-recent-blog-post item">
-                    <div class="thumb">
-                        <img class="img-fluid" src="img/b2.jpg" alt="">
-                    </div>
-                    <div class="details">
-                        <div class="tags">
-                            <ul>
-                                <li>
-                                    <a href="#">Travel</a>
-                                </li>
-                                <li>
-                                    <a href="#">Life Style</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="#">
-                            <h4 class="title">Creative Outdoor Ads</h4>
-                        </a>
-                        <p>
-                            Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A
-                            farmer.
-                        </p>
-                        <h6 class="date">31st January,2018</h6>
-                    </div>
-                </div>
-                <div class="single-recent-blog-post item">
-                    <div class="thumb">
-                        <img class="img-fluid" src="img/b3.jpg" alt="">
-                    </div>
-                    <div class="details">
-                        <div class="tags">
-                            <ul>
-                                <li>
-                                    <a href="#">Travel</a>
-                                </li>
-                                <li>
-                                    <a href="#">Life Style</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="#">
-                            <h4 class="title">It's Classified How To Utilize Free</h4>
-                        </a>
-                        <p>
-                            Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A
-                            farmer.
-                        </p>
-                        <h6 class="date">31st January,2018</h6>
-                    </div>
-                </div>
+            <div class="col-md-12 featured-img d-flex justify-content-center flex-wrap">
+                <?php foreach($clients as $r) : ?>
+                    <img src="images/gallery/<?=$r['gambar']?>" alt="">
+                <?php endforeach ?>
             </div>
         </div>
     </div>

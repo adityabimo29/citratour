@@ -72,15 +72,15 @@
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="page-edit-1" class="sidebar-link">
+                                    <a href="keuntungan" class="sidebar-link">
                                         <i class="sl-icon-arrow-right"></i>
-                                        <span class="hide-menu">Header</span>
+                                        <span class="hide-menu">Keunggulan</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="prakata" class="sidebar-link">
+                                    <a href="gallery" class="sidebar-link">
                                         <i class="sl-icon-arrow-right"></i>
-                                        <span class="hide-menu">Prakata</span>
+                                        <span class="hide-menu">Our Client</span>
                                     </a>
                                 </li>
                             </ul>

@@ -333,12 +333,13 @@
         ];
         CKEDITOR.replace('ckeditor2', {
             toolbarGroups,
-            uiColor: '#ffffff',
+            uiColor: '#9AB8F3',
             removeButtons : 'Image,Flash,Iframe,Youtube'
         });
         CKEDITOR.replace('ckeditor3', {
             toolbarGroups,
-            uiColor: '#ffffff',
+            uiColor: '#9AB8F3',
+            skin : 'moonocolor',
             removeButtons : 'Image,Flash,Iframe,Youtube'
         });
 

@@ -106,22 +106,21 @@
     <script src="assets/js/jquery-2.2.4.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script> -->
     <script src="assets/js/jquery-ui.js"></script>
     <script src="assets/js/easing.min.js"></script>
     <script src="assets/js/hoverIntent.js"></script>
     <script src="assets/js/superfish.min.js"></script>
-    <script src="assets/js/jquery.ajaxchimp.min.js"></script>
+    <!-- <script src="assets/js/jquery.ajaxchimp.min.js"></script> -->
     <script src="assets/js/jquery.magnific-popup.min.js"></script>
     <script src="assets/js/jquery.nice-select.min.js"></script>
     <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/mail-script.js"></script>
+    <!-- <script src="assets/js/mail-script.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slippry/1.4.0/slippry.min.js"
         integrity="sha512-AuA2kbI9ByrbsuXrrdqY8qlayz6cFSwLl7qvLBQSMJIWJ5YFjBRKrtVWD3NKWZHOcxqpnqYJtcLaZARXxR+Kjg=="
         crossorigin="anonymous"></script>
     <script src="assets/js/main.js?<?=date('i:s')?>"></script>
     <script src="assets/js/bootstrap.step.js?v<?=date('i:s')?>"></script>
-
     <script>
     $(document).ready(function() {
         $('#slider-home').slippry({

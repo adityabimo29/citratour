@@ -38,29 +38,20 @@ $router->get('/', function () use ($templates,$db) {
     
     $slider  = $db->connection('SELECT * FROM slider  ORDER BY id_slider DESC ')->fetchAll();
 
-    $prakata  = $db->connection('SELECT deskripsi FROM page  WHERE id_page = 13 ')->fetchColumn();
+    $car  = $db->connection("SELECT * FROM daily_car WHERE jenis='daily' ORDER BY RAND() LIMIT 4 ")->fetchAll();
 
-    $layanan  = $db->connection('SELECT * FROM page  WHERE id_page = 10 ')->fetch();
+    $tour  = $db->connection("SELECT * FROM tour WHERE jenis ='jogja' ORDER BY RAND() LIMIT 6  ")->fetchAll();
 
-    $welcome  = $db->connection('SELECT * FROM page  WHERE id_page = 3 ')->fetch();
+    $keuntungan  = $db->connection('SELECT * FROM keuntungan')->fetchAll();
 
-    $header  = $db->connection('SELECT * FROM page  WHERE id_page = 1 ')->fetch();
-
-    $blog  = $db->connection('SELECT * FROM artikel  ORDER BY id_artikel DESC LIMIT 12 ')->fetchAll();
-    
-    $keuntungan  = $db->connection('SELECT * FROM keuntungan  ORDER BY id_keuntungan DESC ')->fetchAll();
-
-    $gallery  = $db->connection('SELECT * FROM gallery')->fetchAll();
+    $clients  = $db->connection('SELECT * FROM gallery')->fetchAll();
 
     $data = array(
         'slider'    => $slider,
-        'layanan'   =>$layanan,
-        'prakata'   =>$prakata,
-        'welcome'   =>$welcome,
-        'keuntungan'=>$keuntungan,
-        'blog'    =>$blog,
-        'header'   => $header,
-        'gallery'  => $gallery
+        'car'    => $car,
+        'tour'    => $tour,
+        'keunggulan'    => $keuntungan,
+        'clients'  => $clients
     );
     echo $templates->render('home', $data);
 
@@ -113,13 +104,15 @@ $router->get('/transfer-in-out', function () use ($templates,$db) {
 
 });
 
-$router->get('/visi-misi', function () use ($templates,$db) {
+$router->get('/kategori-tour-(.*)-(\d+)', function ($slug,$id) use ($templates,$db) {
 
     /** SEO */
     $templates->addData(['seo' => 'detpage','id' => 10]);
+    $kategori = $db->connection("SELECT * FROM tour_kategori WHERE id_tour_kategori = $id ")->fetch();
+    $tour = $db->connection("SELECT * FROM tour WHERE id_tour_kategori = $id ")->fetchAll();
 
     $data        = $db->read('page','*', 'id_page = 10')->fetch(PDO::FETCH_ASSOC);
-    echo $templates->render('page', ['data' => $data,]);
+    echo $templates->render('listTour', ['data' => $data,'kategori' => $kategori,'tour' => $tour]);
 
 });
 

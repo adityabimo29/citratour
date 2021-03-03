@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row align-items-center justify-content-between d-flex">
                 <div id="logo">
-                    <a href="<?=$base_url?>"><img src="img/logo.png" alt="" title="" /></a>
+                    <a href="<?=$base_url?>"><img style="height:50px" src="images/<?=$deskrip[1]?>"  /></a>
                 </div>
                 <nav id="nav-menu-container">
                     <ul class="nav-menu">
@@ -17,14 +17,22 @@
                         </li>
                         <li class="menu-has-children"><a href="">PAKET TOUR JOGJA</a>
                             <ul>
-                                <li><a href="blog-home.html">Blog Home</a></li>
-                                <li><a href="blog-single.html">Blog Single</a></li>
+                            <?php
+                                $tete = $db->read("tour_kategori","*", "pien ='tour-jogja' ")->fetchAll();
+                                foreach($tete as $m):
+                            ?>
+                                <li><a href="kategori-tour-<?=$m['judul_seo']."-".$m['id_tour_kategori']?>"><?=$m['judul']?></a></li>
+                            <?php endforeach ?>
                             </ul>
                         </li>
                         <li class="menu-has-children"><a href="">PAKET TOUR LAINNYA</a>
-                            <ul>
-                                <li><a href="blog-home.html">Blog Home</a></li>
-                                <li><a href="blog-single.html">Blog Single</a></li>
+                        <ul>
+                            <?php
+                                $tete = $db->read("tour_kategori","*", "pien ='tour-lain' ")->fetchAll();
+                                foreach($tete as $m):
+                            ?>
+                                <li><a href="kategori-tour-<?=$m['judul_seo']."-".$m['id_tour_kategori']?>"><?=$m['judul']?></a></li>
+                            <?php endforeach ?>
                             </ul>
                         </li>
                         <!-- <li class="menu-has-children"><a href="">Pages</a>

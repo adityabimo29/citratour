@@ -1,4 +1,4 @@
-<?php $this->layout('template', ['hal'=>'Gallery']) ?>
+<?php $this->layout('template', ['hal'=>'Our Client']) ?>
 <?php
 	$module = "gallery";
 

@@ -40,6 +40,7 @@ use \Gumlet\ImageResize;
                             'status' => $_POST['status'],
                             'keyword' => $_POST['keyword'],
                             'description' => $_POST['description'],
+                            'destinasi' => $_POST['destinasi'],
                             'gambar' => $nama_file_unik,
                             'tgl' => $tgl_post
 
@@ -51,7 +52,7 @@ use \Gumlet\ImageResize;
                         lopoCompress( 'tour/small', $pathToImage, $tipe_file2, 6 );
                         
                         $image = new ImageResize($pathSmall);
-                        $image->resize(250, 250);
+                        $image->resize(500, 347);
                         $image->save($pathSmall);
 
                         $image2 = new ImageResize($pathToImage);
@@ -80,6 +81,7 @@ use \Gumlet\ImageResize;
                     'fasilitas' => $_POST['fasilitas'],
                     'status' => $_POST['status'],
                     'keyword' => $_POST['keyword'],
+                    'destinasi' => $_POST['destinasi'],
                     'description' => $_POST['description'],
                     'tgl' => $tgl_post
 
@@ -124,6 +126,7 @@ use \Gumlet\ImageResize;
                     'status' => $_POST['status'],
                     'keyword' => $_POST['keyword'],
                     'description' => $_POST['description'],
+                    'destinasi' => $_POST['destinasi'],
                     'gambar' => $nama_file_unik,
                     'tgl' => $tgl_post
                 );
@@ -137,7 +140,7 @@ use \Gumlet\ImageResize;
                 lopoCompress( 'tour/small', $pathToImage, $tipe_file2, 6 );
                 
                 $image = new ImageResize($pathSmall);
-                $image->resize(250, 250);
+                $image->resize(500, 347);
                 $image->save($pathSmall);
                         
                 $image2 = new ImageResize($pathToImage);

@@ -878,8 +878,8 @@ $router->mount('/admin', function () use ($router, $db, $jmw, $path,$imgname1) {
     /** Url Tour Kategori **/
     $router->get('/tour-kategori-jogja', function () use ($jmw, $db) {
         $zelda = 'tour-kategori-jogja';
-        $yuri  = 'tour-lain';
-        $tampil = $db->connection("SELECT * FROM tour_kategori WHERE pien ='tour-lain'  ORDER BY id_tour_kategori DESC");
+        $yuri  = 'tour-jogja';
+        $tampil = $db->connection("SELECT * FROM tour_kategori WHERE pien ='tour-jogja'  ORDER BY id_tour_kategori DESC");
         echo $jmw->render('modul/tour_kategori/index', ['act' => 'list', 'tampil' => $tampil,'zelda' => $zelda, 'yuri' => $yuri]);
     });
 

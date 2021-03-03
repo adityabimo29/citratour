@@ -39,7 +39,7 @@ if ($act == 'update') {
                     $pathToImage = 'images/daily_car/' . $nama_file_unik;
                     $pathSmall = 'images/daily_car/small/' . $nama_file_unik;
                     lopoCompress('daily_car', $pathToImage, $tipe_file2);
-                    lopoCompress('daily_car/small', $pathToImage, $tipe_file2, 3);
+                    lopoCompress('daily_car/small', $pathToImage, $tipe_file2, 0);
 
                     $image = new ImageResize($pathSmall);
                     $image->resize(250,130);
@@ -114,8 +114,8 @@ elseif ($act == 'add') {
 
                     $pathToImage = 'images/daily_car/' . $nama_file_unik;
                     $pathSmall = 'images/daily_car/small/' . $nama_file_unik;
-                    lopoCompress('daily_car', $pathToImage, $tipe_file2, 1);
-                    lopoCompress('daily_car/small', $pathToImage, $tipe_file2, 3);
+                    lopoCompress('daily_car', $pathToImage, $tipe_file2, 0);
+                    lopoCompress('daily_car/small', $pathToImage, $tipe_file2, 0);
 
                     $image = new ImageResize($pathSmall);
                     $image->resize(250,130);

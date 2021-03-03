@@ -46,7 +46,7 @@ if ($act == 'update') {
                     $image->save($pathSmall);
 
                     $image2 = new ImageResize($pathToImage);
-                    $image2->resize(1349, 625);
+                    $image2->resize(1349, 562);
                     $image2->save($pathToImage);
 
                     echo "<script>alert('slider Berhasil diedit'); window.location = '$hal-edit-$_POST[id_slider]'</script>";
@@ -121,7 +121,7 @@ elseif ($act == 'add') {
                     $image->save($pathSmall);
 
                     $image2 = new ImageResize($pathToImage);
-                    $image2->resize(1349, 625);
+                    $image2->resize(1349, 562);
                     $image2->save($pathToImage);
 
                     echo "<script>alert('slider Berhasil ditambah'); window.location = '$hal-edit-$insertId'</script>";

@@ -32,7 +32,7 @@
                                     <td align="center"><?php echo  $no; ?></td>
                                     <td><?php echo  $r['judul']; ?></td>
                                     <td align="center"><img src="../images/<?php echo "tour/small/$r[gambar]"; ?>"
-                                            width="180px">
+                                            width="50px">
                                     </td>
                                     <td width="20%" align="center"><?php echo  tgl2($r['tgl']); ?></td>
 
@@ -120,6 +120,12 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Destinasi</label>
+                                    <textarea class="form-control" rows="3"  name="destinasi"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
                                 <!-- <p class="alert alert-warning">SEO (Search Engine Optimation)</p> -->
                                 <!-- Nav tabs -->
                                 <ul class="nav nav-tabs" role="tablist">
@@ -142,12 +148,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <!-- <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Deskripsi</label>
                                     <textarea id="ckeditor"  name="deskripsi"></textarea>
                                 </div>
-                            </div>
+                            </div> -->
+                            
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Status</label>
@@ -273,6 +280,12 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Destinasi</label>
+                                    <textarea class="form-control" rows="3"  name="destinasi"><?php echo $data['destinasi'] ?></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
                                 <!-- <p class="alert alert-warning">SEO (Search Engine Optimation)</p> -->
                                 <!-- Nav tabs -->
                                 <ul class="nav nav-tabs" role="tablist">
@@ -295,12 +308,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            
+                            <!-- <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Deskripsi</label>
                                     <textarea id="ckeditor" name="deskripsi"><?php echo $data['deskripsi'] ?></textarea>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Status</label>

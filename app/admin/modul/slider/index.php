@@ -57,12 +57,12 @@
                         <input type="text" class="form-control" name="nama" required>
                     </div>
                 </div>
-                <div class="col-md-12">
+                <!-- <div class="col-md-12">
                     <div class="form-group">
                         <label for="">Deskripsi</label>
                         <textarea id="ckeditor2" class="ckeditor2" name="deskripsi"></textarea>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="message-text" class="control-label">Gambar</label>
@@ -101,12 +101,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12">
+                <!-- <div class="col-md-12">
                     <div class="form-group">
                         <label for="">Deskripsi</label>
                         <textarea id="ckeditor3" class="ckeditor2" name="deskripsi"><?php echo $data['deskripsi'] ?></textarea>
                     </div>
-                </div>
+                </div> -->
                 <input type="submit" id="btn-slider" class="btn btn-primary" value="Simpan Data">
             </div>
         </form>
